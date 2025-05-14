@@ -18,12 +18,13 @@
                 const langPath = userLang.startsWith('da') ? 'da' : 'en';
                 debugInfo('Selected language: ' + langPath);
                 
-                // Get base URL
-                const baseUrl = window.location.href.replace('index.html', '');
+                // Get base URL and ensure Tamilbio path
+                const currentPath = window.location.pathname;
+                const baseUrl = window.location.origin + '/Tamilbio/';
                 debugInfo('Base URL: ' + baseUrl);
                 
                 // Build redirect path
-                const redirectPath = `${baseUrl}${langPath}/index.html`;
+                const redirectPath = `${baseUrl}${langPath}/`;
                 debugInfo('Redirect path: ' + redirectPath);
                 
                 // Perform redirect after showing debug info
