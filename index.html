@@ -18,9 +18,14 @@
                 const langPath = userLang.startsWith('da') ? 'da' : 'en';
                 debugInfo('Selected language: ' + langPath);
                 
-                // Get base URL and ensure Tamilbio path
-                const currentPath = window.location.pathname;
-                const baseUrl = window.location.origin + '/Tamilbio/';
+                // Handle local development vs production
+                const isLocal = window.location.hostname === 'localhost' || 
+                              window.location.hostname === '127.0.0.1';
+                
+                // Build base URL
+                const baseUrl = isLocal 
+                    ? window.location.origin + '/Tamilbio/'
+                    : 'https://apps.appvise.dk/Tamilbio/';
                 debugInfo('Base URL: ' + baseUrl);
                 
                 // Build redirect path
