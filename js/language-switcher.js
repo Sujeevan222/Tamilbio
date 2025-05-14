@@ -11,8 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle language changes
   languageSelect.addEventListener('change', (e) => {
     const newLang = e.target.value;
-    const baseUrl = window.location.origin + '/Tamilbio/';
-    window.location.href = `${baseUrl}${newLang}/`;
+    // Get current URL and replace language part
+    const currentUrl = window.location.href;
+    const newUrl = currentUrl.replace(
+      `/${currentLang}/`,
+      `/${newLang}/`
+    );
+    console.log('Redirecting to:', newUrl); // Debug log
+    window.location.href = newUrl;
   });
 
   // Apply initial translations
@@ -20,6 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function updateContent(lang) {
+  if (!translations || !translations[lang]) {
+    console.error('Translations not found for:', lang);
+    return;
+  }
+
   document.documentElement.lang = lang;
 
   document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -27,14 +38,18 @@ function updateContent(lang) {
     const keys = key.split('.');
     let translation = translations[lang];
 
-    for (const k of keys) {
-      translation = translation[k];
-    }
+    try {
+      for (const k of keys) {
+        translation = translation[k];
+      }
 
-    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-      element.placeholder = translation;
-    } else {
-      element.textContent = translation;
+      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+        element.placeholder = translation;
+      } else {
+        element.textContent = translation;
+      }
+    } catch (error) {
+      console.error(`Translation error for key: ${key}`, error);
     }
   });
 }

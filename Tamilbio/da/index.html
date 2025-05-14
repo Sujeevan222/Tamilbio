@@ -18,9 +18,9 @@
                     <a href="#features" class="text-gray-600 hover:text-blue-600" data-i18n="nav.features">Funktioner</a>
                     <a href="#privacy" class="text-gray-600 hover:text-blue-600" data-i18n="nav.privacy">Privatlivspolitik</a>
                     <a href="#contact" class="text-gray-600 hover:text-blue-600" data-i18n="nav.contact">Kontakt</a>
-                    <select id="languageSelect" class="ml-4 border rounded px-2 py-1">
+                    <select id="languageSelect" class="ml-4 border rounded px-2 py-1" onchange="this.blur()">
                         <option value="en">English</option>
-                        <option value="da">Dansk</option>
+                        <option value="da" selected>Dansk</option>
                     </select>
                 </div>
             </div>
@@ -76,7 +76,7 @@
         </div>
     </section>
 
-    <script src="../js/translations.js"></script>
-    <script src="../js/language-switcher.js"></script>
+    <script src="../../js/translations.js"></script>
+    <script src="../../js/language-switcher.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ const translations = {
     },
     hero: {
       title: "Stay Organized. Stay Ahead.",
-      subtitle: "A beautiful, intuitive iOS app to help you manage your day",
+      subtitle: "A beautiful, intuitive iOS app to help you manage your day with ease and elegance.",
       cta: "Get Started"
     },
     features: {
@@ -38,7 +38,7 @@ const translations = {
     },
     hero: {
       title: "Hold Styr På Det. Vær På Forkant.",
-      subtitle: "En smuk, intuitiv iOS-app til at hjælpe dig med at administrere din dag",
+      subtitle: "En smuk, intuitiv iOS-app til at hjælpe dig med at administrere din dag.",
       cta: "Kom I Gang"
     },
     features: {
