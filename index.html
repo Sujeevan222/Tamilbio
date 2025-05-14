@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        function debugInfo(msg) {
+            document.getElementById('debug').textContent += msg + '\n';
+        }
+
+        window.onload = function() {
+            try {
+                // Get browser language
+                const userLang = navigator.language || navigator.userLanguage;
+                debugInfo('Browser language: ' + userLang);
+                
+                // Get the language path
+                const langPath = userLang.startsWith('da') ? 'da' : 'en';
+                debugInfo('Selected language: ' + langPath);
+                
+                // Get base URL
+                const baseUrl = window.location.href.replace('index.html', '');
+                debugInfo('Base URL: ' + baseUrl);
+                
+                // Build redirect path
+                const redirectPath = `${baseUrl}${langPath}/index.html`;
+                debugInfo('Redirect path: ' + redirectPath);
+                
+                // Perform redirect after showing debug info
+                setTimeout(() => {
+                    window.location.href = redirectPath;
+                }, 2000);
+            } catch (error) {
+                debugInfo('Error: ' + error.message);
+            }
+        };
+    </script>
+</head>
+<body>
+    <p>Redirecting to your preferred language...</p>
+    <pre id="debug" style="font-family: monospace; margin-top: 20px;"></pre>
+</body>
+</html>
