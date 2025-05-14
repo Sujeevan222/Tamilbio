@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle language changes
   languageSelect.addEventListener('change', (e) => {
     const newLang = e.target.value;
-    const currentUrl = window.location.href;
-    const newUrl = currentUrl.replace(`/${currentLang}/`, `/${newLang}/`);
-    window.location.href = newUrl;
+    const baseUrl = window.location.origin + '/Tamilbio/';
+    window.location.href = `${baseUrl}${newLang}/`;
   });
+
+  // Apply initial translations
+  updateContent(currentLang);
 });
 
 function updateContent(lang) {
