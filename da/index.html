@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TamilBio - Oplev Tamilsk Film</title>
-    <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
     <link rel="alternate" hreflang="en" href="https://tamilbio.appvise.dk/en/" />
     <link rel="alternate" hreflang="da" href="https://tamilbio.appvise.dk/da/" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -276,15 +276,15 @@
             <!-- Screenshots Grid -->
             <div class="screenshot-grid">
                 <div class="screenshot">
-                    <img id="screenshot1" src="../../images/screenshot1-da.png" alt="TamilBio Hjemmeskærm" class="w-full h-auto">
+                    <img id="screenshot1" src="../images/screenshot1-da.png" alt="TamilBio Hjemmeskærm" class="w-full h-auto">
                     <h3 class="text-lg font-semibold mt-4 text-center">Hjemmeskærm</h3>
                 </div>
                 <div class="screenshot">
-                    <img id="screenshot2" src="../../images/screenshot2-da.png" alt="TamilBio Filmdetaljer" class="w-full h-auto">
+                    <img id="screenshot2" src="../images/screenshot2-da.png" alt="TamilBio Filmdetaljer" class="w-full h-auto">
                     <h3 class="text-lg font-semibold mt-4 text-center">Filmdetaljer</h3>
                 </div>
                 <div class="screenshot">
-                    <img id="screenshot3" src="../../images/screenshot3-da.png" alt="TamilBio Søgning" class="w-full h-auto">
+                    <img id="screenshot3" src="../images/screenshot3-da.png" alt="TamilBio Søgning" class="w-full h-auto">
                     <h3 class="text-lg font-semibold mt-4 text-center">Søg & Filtrer</h3>
                 </div>
             </div>
@@ -338,7 +338,7 @@
                 <div class="support-email">
                     <h3 class="text-2xl font-semibold mb-6">Har du brug for hjælp?</h3>
                     <p class="text-secondary mb-8">Kontakt vores supportteam for spørgsmål, fejlrapporter eller forespørgsler om funktioner.</p>
-                    <a href="mailto:support@appvise.dk" class="email-link">support@appvise.dk</a>
+                    <a href="mailto:support@tamilbio.com" class="email-link">support@tamilbio.com</a>
                 </div>
             </div>
         </div>
@@ -347,7 +347,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p class="footer-text">&copy; 2025 Sujeevan Kuganesan - Alle rettigheder forbeholdes.</p>
+            <p class="footer-text">&copy; 2024 TamilBio. Alle rettigheder forbeholdes.</p>
         </div>
     </footer>
 
@@ -386,7 +386,7 @@
         document.getElementById('languageSelect').addEventListener('change', function() {
             const lang = this.value;
             if (lang === 'en') {
-                window.location.href = 'https://tamilbio.appvise.dk/en/';
+                window.location.href = '../en/index.html';
             }
         });
 
@@ -397,9 +397,9 @@
         });
 
         function updateScreenshots(lang) {
-            document.getElementById('screenshot1').src = `../../images/screenshot1-${lang}.png`;
-            document.getElementById('screenshot2').src = `../../images/screenshot2-${lang}.png`;
-            document.getElementById('screenshot3').src = `../../images/screenshot3-${lang}.png`;
+            document.getElementById('screenshot1').src = `../images/screenshot1-${lang}.png`;
+            document.getElementById('screenshot2').src = `../images/screenshot2-${lang}.png`;
+            document.getElementById('screenshot3').src = `../images/screenshot3-${lang}.png`;
         }
     </script>
 </body>

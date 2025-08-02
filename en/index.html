@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TamilBio - Discover Tamil Cinema</title>
-    <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
     <link rel="alternate" hreflang="en" href="https://tamilbio.appvise.dk/en/" />
     <link rel="alternate" hreflang="da" href="https://tamilbio.appvise.dk/da/" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -276,15 +276,15 @@
             <!-- Screenshots Grid -->
             <div class="screenshot-grid">
                 <div class="screenshot">
-                    <img id="screenshot1" src="../../images/screenshot1-en.png" alt="TamilBio Home Screen" class="w-full h-auto">
+                    <img id="screenshot1" src="../images/screenshot1-en.png" alt="TamilBio Home Screen" class="w-full h-auto">
                     <h3 class="text-lg font-semibold mt-4 text-center">Home Screen</h3>
                 </div>
                 <div class="screenshot">
-                    <img id="screenshot2" src="../../images/screenshot2-en.png" alt="TamilBio Movie Details" class="w-full h-auto">
+                    <img id="screenshot2" src="../images/screenshot2-en.png" alt="TamilBio Movie Details" class="w-full h-auto">
                     <h3 class="text-lg font-semibold mt-4 text-center">Movie Details</h3>
                 </div>
                 <div class="screenshot">
-                    <img id="screenshot3" src="../../images/screenshot3-en.png" alt="TamilBio Search" class="w-full h-auto">
+                    <img id="screenshot3" src="../images/screenshot3-en.png" alt="TamilBio Search" class="w-full h-auto">
                     <h3 class="text-lg font-semibold mt-4 text-center">Search & Filter</h3>
                 </div>
             </div>
@@ -338,7 +338,7 @@
                 <div class="support-email">
                     <h3 class="text-2xl font-semibold mb-6">Need Help?</h3>
                     <p class="text-secondary mb-8">Contact our support team for any questions, bug reports, or feature requests.</p>
-                    <a href="mailto:support@appvise.dk" class="email-link">support@appvise.dk</a>
+                    <a href="mailto:support@tamilbio.com" class="email-link">support@tamilbio.com</a>
                 </div>
             </div>
         </div>
@@ -347,7 +347,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p class="footer-text">&copy; 2025 Sujeevan Kuganesan -  All rights reserved.</p>
+            <p class="footer-text">&copy; 2024 TamilBio. All rights reserved.</p>
         </div>
     </footer>
 
@@ -386,7 +386,7 @@
         document.getElementById('languageSelect').addEventListener('change', function() {
             const lang = this.value;
             if (lang === 'da') {
-                window.location.href = 'https://tamilbio.appvise.dk/da/';
+                window.location.href = '../da/index.html';
             }
         });
 
@@ -397,9 +397,9 @@
         });
 
         function updateScreenshots(lang) {
-            document.getElementById('screenshot1').src = `../../images/screenshot1-${lang}.png`;
-            document.getElementById('screenshot2').src = `../../images/screenshot2-${lang}.png`;
-            document.getElementById('screenshot3').src = `../../images/screenshot3-${lang}.png`;
+            document.getElementById('screenshot1').src = `../images/screenshot1-${lang}.png`;
+            document.getElementById('screenshot2').src = `../images/screenshot2-${lang}.png`;
+            document.getElementById('screenshot3').src = `../images/screenshot3-${lang}.png`;
         }
     </script>
 </body>

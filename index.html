@@ -22,20 +22,25 @@
                 const isLocal = window.location.hostname === 'localhost' || 
                               window.location.hostname === '127.0.0.1';
                 
-                // Build base URL - Updated for subdomain structure
-                const baseUrl = isLocal 
-                    ? window.location.origin + '/Tamilbio/'
-                    : 'https://tamilbio.appvise.dk/';
-                debugInfo('Base URL: ' + baseUrl);
-                
-                // Build redirect path
-                const redirectPath = `${baseUrl}${langPath}/`;
-                debugInfo('Redirect path: ' + redirectPath);
-                
-                // Perform redirect after showing debug info
-                setTimeout(() => {
-                    window.location.href = redirectPath;
-                }, 2000);
+                // Build base URL
+                let baseUrl;
+                if (isLocal) {
+                    // Local development - include index.html
+                    baseUrl = window.location.origin + '/Tamilbio/';
+                    const redirectPath = `${baseUrl}${langPath}/index.html`;
+                    debugInfo('Local redirect path: ' + redirectPath);
+                    setTimeout(() => {
+                        window.location.href = redirectPath;
+                    }, 2000);
+                } else {
+                    // Production
+                    baseUrl = 'https://tamilbio.appvise.dk/';
+                    const redirectPath = `${baseUrl}${langPath}/`;
+                    debugInfo('Production redirect path: ' + redirectPath);
+                    setTimeout(() => {
+                        window.location.href = redirectPath;
+                    }, 2000);
+                }
             } catch (error) {
                 debugInfo('Error: ' + error.message);
             }
