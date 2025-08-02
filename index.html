@@ -22,10 +22,10 @@
                 const isLocal = window.location.hostname === 'localhost' || 
                               window.location.hostname === '127.0.0.1';
                 
-                // Build base URL
+                // Build base URL - Updated for subdomain structure
                 const baseUrl = isLocal 
                     ? window.location.origin + '/Tamilbio/'
-                    : 'https://apps.appvise.dk/Tamilbio/';
+                    : 'https://tamilbio.appvise.dk/';
                 debugInfo('Base URL: ' + baseUrl);
                 
                 // Build redirect path
