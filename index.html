@@ -1,8 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TamilBio - Redirecting...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #dc2626;
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #d1d5db;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            padding: 40px 20px;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+        
+        .message {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(220, 38, 38, 0.3);
+            border-top: 3px solid var(--primary-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .debug {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: left;
+            max-width: 100%;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .message {
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 20px 16px;
+            }
+        }
+    </style>
     <script>
         function debugInfo(msg) {
             document.getElementById('debug').textContent += msg + '\n';
@@ -20,35 +106,42 @@
                 
                 // Handle local development vs production
                 const isLocal = window.location.hostname === 'localhost' || 
-                              window.location.hostname === '127.0.0.1';
+                              window.location.hostname === '127.0.0.1' ||
+                              window.location.hostname === '' ||
+                              window.location.protocol === 'file:';
                 
-                // Build base URL
-                let baseUrl;
+                // Build redirect URL
+                let redirectPath;
                 if (isLocal) {
-                    // Local development - include index.html
-                    baseUrl = window.location.origin + '/Tamilbio/';
-                    const redirectPath = `${baseUrl}${langPath}/index.html`;
+                    // Local development - use relative paths
+                    redirectPath = `./${langPath}/index.html`;
                     debugInfo('Local redirect path: ' + redirectPath);
-                    setTimeout(() => {
-                        window.location.href = redirectPath;
-                    }, 2000);
                 } else {
                     // Production
-                    baseUrl = 'https://tamilbio.appvise.dk/';
-                    const redirectPath = `${baseUrl}${langPath}/`;
+                    redirectPath = `https://tamilbio.appvise.dk/${langPath}/`;
                     debugInfo('Production redirect path: ' + redirectPath);
-                    setTimeout(() => {
-                        window.location.href = redirectPath;
-                    }, 2000);
                 }
+                
+                // Redirect after a short delay
+                setTimeout(() => {
+                    window.location.href = redirectPath;
+                }, 1000);
             } catch (error) {
                 debugInfo('Error: ' + error.message);
+                // Fallback redirect to English version
+                setTimeout(() => {
+                    window.location.href = './en/index.html';
+                }, 2000);
             }
         };
     </script>
 </head>
 <body>
-    <p>Redirecting to your preferred language...</p>
-    <pre id="debug" style="font-family: monospace; margin-top: 20px;"></pre>
+    <div class="container">
+        <h1 class="logo">TamilBio</h1>
+        <p class="message">Redirecting to your preferred language...</p>
+        <div class="spinner"></div>
+        <div class="debug" id="debug"></div>
+    </div>
 </body>
 </html>
